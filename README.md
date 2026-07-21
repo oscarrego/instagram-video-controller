@@ -1,4 +1,4 @@
-# Instagram Reel Player Pro 🎬⚡
+# Instagram Video Controller 🎬⚡
 
 A modern Chrome Extension (Manifest V3) that enhances the Instagram desktop experience by injecting a YouTube/Netflix-style video player interface with custom controls, interactive seek bar, speed selector, Picture-in-Picture, and keyboard shortcuts over Instagram Reels and videos.
 
