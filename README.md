@@ -18,7 +18,9 @@ A modern Chrome Extension (Manifest V3) that enhances the Instagram desktop expe
 - **Fullscreen Mode**: View Reels in clean fullscreen overlay (`F`).
 - **Toast Feedback Overlay**: Animated visual popups in the center of the video whenever actions or shortcuts are triggered.
 
-### ⌨️ Keyboard Shortcuts Reference
+---
+
+## ⌨️ Keyboard Shortcuts Reference
 
 | Shortcut | Action |
 | :--- | :--- |
@@ -45,30 +47,17 @@ A modern Chrome Extension (Manifest V3) that enhances the Instagram desktop expe
 
 ---
 
-## 🚀 How to Install in Google Chrome ("Load unpacked")
+## 🚀 How to Install & Use ("Load unpacked")
 
-1. Open **Google Chrome**.
-2. Navigate to `chrome://extensions/` in your browser address bar.
-3. Enable **Developer mode** using the toggle in the top-right corner.
+### Installation
+1. Download or clone this repository to your local machine.
+2. Open **Google Chrome** and navigate to `chrome://extensions/` in your address bar.
+3. Enable **Developer mode** using the toggle switch in the top-right corner.
 4. Click the **Load unpacked** button in the top-left corner.
-5. Select this folder directory:
-   ```
-   c:\Users\oscar\Desktop\videoControler
-   ```
-6. Open [Instagram Reels](https://www.instagram.com/reels/) in your browser.
-7. Enjoy the YouTube-style controls overlay on any Instagram Reel or video!
+5. Select the project folder containing `manifest.json`.
 
----
-
-## 🛠️ Project Structure
-
-```
-c:\Users\oscar\Desktop\videoControler\
-├── manifest.json   # Manifest V3 extension configuration
-├── content.js      # MutationObserver DOM & SPA navigation handler
-├── player.js       # Video controller logic, event handlers & shortcuts
-├── styles.css      # Dark glassmorphism overlay styles & animations
-├── popup.html      # Extension action popup interface
-├── popup.js        # Extension popup preferences sync
-└── README.md       # Project documentation & usage guide
-```
+### How to Use
+1. Open [Instagram Reels](https://www.instagram.com/reels/) in your browser.
+2. Hover over any active Reel to reveal the custom YouTube-style player controls.
+3. Use your mouse to seek, adjust volume, change playback speed, or toggle Picture-in-Picture.
+4. Use the keyboard shortcuts anytime to control playback instantly!
