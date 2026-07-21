@@ -1,0 +1,414 @@
+/* ==========================================================================
+   Instagram Reel Player Pro - Custom Video Player Overlay Styles
+   ========================================================================== */
+
+/* Outer wrapper overlay positioned over the video container card */
+.irp-container {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: none !important;
+  z-index: 2147483647 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  box-sizing: border-box !important;
+  overflow: hidden !important;
+}
+
+.irp-container * {
+  box-sizing: border-box !important;
+}
+
+/* Toast feedback popup overlay (Center of video) */
+.irp-toast {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) scale(0.8) !important;
+  background: rgba(18, 18, 18, 0.88) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  color: #ffffff !important;
+  padding: 12px 20px !important;
+  border-radius: 24px !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.5px !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.1) !important;
+  z-index: 2147483647 !important;
+}
+
+.irp-toast.irp-toast-show {
+  opacity: 1 !important;
+  transform: translate(-50%, -50%) scale(1) !important;
+}
+
+.irp-toast svg {
+  width: 20px !important;
+  height: 20px !important;
+  fill: currentColor !important;
+}
+
+/* Bottom Control Bar Container */
+.irp-controls-bar {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.65) 60%, rgba(0, 0, 0, 0) 100%) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  padding: 12px 14px 10px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 8px !important;
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  pointer-events: auto !important;
+  border-bottom-left-radius: 8px !important;
+  border-bottom-right-radius: 8px !important;
+  z-index: 2147483647 !important;
+}
+
+/* Auto-hide inactive class */
+.irp-hidden {
+  opacity: 0 !important;
+  transform: translateY(8px) !important;
+  pointer-events: none !important;
+}
+
+/* Seekbar & Tooltip Section */
+.irp-seekbar-wrapper {
+  position: relative !important;
+  width: 100% !important;
+  height: 16px !important;
+  display: flex !important;
+  align-items: center !important;
+  cursor: pointer !important;
+  padding: 4px 0 !important;
+  pointer-events: auto !important;
+}
+
+.irp-seekbar-track {
+  position: relative !important;
+  width: 100% !important;
+  height: 4px !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  border-radius: 4px !important;
+  transition: height 0.15s ease, background 0.15s ease !important;
+  overflow: visible !important;
+  pointer-events: auto !important;
+}
+
+.irp-seekbar-wrapper:hover .irp-seekbar-track,
+.irp-seekbar-wrapper.irp-dragging .irp-seekbar-track {
+  height: 8px !important;
+  background: rgba(255, 255, 255, 0.35) !important;
+}
+
+.irp-seekbar-buffer {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  height: 100% !important;
+  background: rgba(255, 255, 255, 0.4) !important;
+  border-radius: 4px !important;
+  width: 0% !important;
+  transition: width 0.2s ease !important;
+}
+
+.irp-seekbar-fill {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  height: 100% !important;
+  background: linear-gradient(90deg, #ff007a, #e50914, #ff2a5f) !important;
+  border-radius: 4px !important;
+  width: 0% !important;
+}
+
+.irp-seekbar-thumb {
+  position: absolute !important;
+  top: 50% !important;
+  left: 0% !important;
+  transform: translate(-50%, -50%) scale(0) !important;
+  width: 14px !important;
+  height: 14px !important;
+  background: #ffffff !important;
+  border-radius: 50% !important;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.6) !important;
+  transition: transform 0.15s ease, background 0.15s ease !important;
+  pointer-events: auto !important;
+}
+
+.irp-seekbar-wrapper:hover .irp-seekbar-thumb,
+.irp-seekbar-wrapper.irp-dragging .irp-seekbar-thumb {
+  transform: translate(-50%, -50%) scale(1) !important;
+}
+
+/* Time Tooltip on Seekbar Hover */
+.irp-seekbar-tooltip {
+  position: absolute !important;
+  bottom: 24px !important;
+  left: 0 !important;
+  transform: translateX(-50%) !important;
+  background: rgba(15, 15, 15, 0.92) !important;
+  color: #ffffff !important;
+  padding: 3px 8px !important;
+  border-radius: 4px !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.15s ease !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+}
+
+.irp-seekbar-wrapper:hover .irp-seekbar-tooltip,
+.irp-seekbar-wrapper.irp-dragging .irp-seekbar-tooltip {
+  opacity: 1 !important;
+}
+
+/* Main Control Buttons Row */
+.irp-buttons-row {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important;
+  gap: 8px !important;
+  pointer-events: auto !important;
+}
+
+.irp-left-controls,
+.irp-right-controls {
+  display: flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  pointer-events: auto !important;
+}
+
+/* Button Base Style */
+.irp-btn {
+  background: transparent !important;
+  border: none !important;
+  outline: none !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  width: 32px !important;
+  height: 32px !important;
+  border-radius: 50% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.1s ease !important;
+  position: relative !important;
+  padding: 0 !important;
+  pointer-events: auto !important;
+}
+
+.irp-btn:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+}
+
+.irp-btn:active {
+  transform: scale(0.92) !important;
+}
+
+.irp-btn.irp-active {
+  color: #ff007a !important;
+  background: rgba(255, 0, 122, 0.18) !important;
+}
+
+.irp-btn svg {
+  width: 18px !important;
+  height: 18px !important;
+  fill: currentColor !important;
+  pointer-events: none !important;
+}
+
+/* Volume Control Container */
+.irp-volume-container {
+  display: flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+  position: relative !important;
+  pointer-events: auto !important;
+}
+
+.irp-volume-slider-wrapper {
+  width: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  pointer-events: auto !important;
+}
+
+.irp-volume-container:hover .irp-volume-slider-wrapper,
+.irp-volume-slider-wrapper.irp-active {
+  width: 64px !important;
+}
+
+.irp-volume-slider {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  width: 60px !important;
+  height: 4px !important;
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-radius: 4px !important;
+  outline: none !important;
+  cursor: pointer !important;
+  margin: 0 4px !important;
+  pointer-events: auto !important;
+}
+
+.irp-volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background: #ffffff !important;
+  cursor: pointer !important;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.15s ease !important;
+}
+
+.irp-volume-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.3) !important;
+}
+
+/* Time Display Text */
+.irp-time-display {
+  color: rgba(255, 255, 255, 0.88) !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.2px !important;
+  margin-left: 6px !important;
+  white-space: nowrap !important;
+  font-variant-numeric: tabular-nums !important;
+  pointer-events: auto !important;
+}
+
+/* Speed Selector Menu */
+.irp-speed-container {
+  position: relative !important;
+  pointer-events: auto !important;
+}
+
+.irp-speed-badge {
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.2px !important;
+}
+
+.irp-speed-menu {
+  position: absolute !important;
+  bottom: 38px !important;
+  right: 0 !important;
+  background: rgba(20, 20, 20, 0.96) !important;
+  backdrop-filter: blur(16px) !important;
+  -webkit-backdrop-filter: blur(16px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  border-radius: 10px !important;
+  padding: 6px 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  min-width: 96px !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.7) !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(8px) !important;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s !important;
+  z-index: 2147483647 !important;
+  pointer-events: auto !important;
+}
+
+.irp-speed-menu.irp-speed-menu-open {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+.irp-speed-option {
+  padding: 6px 14px !important;
+  font-size: 12px !important;
+  color: rgba(255, 255, 255, 0.85) !important;
+  background: transparent !important;
+  border: none !important;
+  text-align: left !important;
+  cursor: pointer !important;
+  transition: background 0.15s ease, color 0.15s ease !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  pointer-events: auto !important;
+}
+
+.irp-speed-option:hover {
+  background: rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+}
+
+.irp-speed-option.irp-selected {
+  color: #ff007a !important;
+  font-weight: 700 !important;
+}
+
+/* Custom Tooltip on Hover for Control Buttons */
+.irp-btn[data-tooltip]::before {
+  content: attr(data-tooltip) !important;
+  position: absolute !important;
+  bottom: 38px !important;
+  left: 50% !important;
+  transform: translateX(-50%) translateY(4px) !important;
+  background: rgba(15, 15, 15, 0.94) !important;
+  color: #ffffff !important;
+  padding: 4px 8px !important;
+  border-radius: 4px !important;
+  font-size: 10px !important;
+  font-weight: 500 !important;
+  white-space: nowrap !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: opacity 0.2s ease, transform 0.2s ease !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.6) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  z-index: 2147483647 !important;
+}
+
+.irp-btn[data-tooltip]:hover::before {
+  opacity: 1 !important;
+  transform: translateX(-50%) translateY(0) !important;
+}
+
+/* Responsiveness for compact video containers */
+@media (max-width: 480px) {
+  .irp-btn {
+    width: 28px !important;
+    height: 28px !important;
+  }
+  .irp-btn svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+  .irp-time-display {
+    font-size: 10px !important;
+  }
+}
